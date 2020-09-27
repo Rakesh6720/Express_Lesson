@@ -5,6 +5,10 @@ const express = require('express');
 
 const app = express();
 
+// set global configuration value
+app.set('view engine', 'pug');
+app.set('views','views');
+
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
