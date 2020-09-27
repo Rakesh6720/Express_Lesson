@@ -8,10 +8,13 @@ const adminData = require('./admin');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    // render dynamic content through pug
-    const products = adminData.products;
-    // render is Express function that uses default template engine defined in app.js
-    res.render('shop', {prods: products, docTitle: 'Shop'});
+  const products = adminData.products;
+  res.render('shop', {
+    prods: products, 
+    pageTitle: 'Shop', 
+    path: '/', 
+    hasProducts: products.length > 0,
+    activeShop: true,
+    productCSS: true
+  });
 });
-
-module.exports = router;
